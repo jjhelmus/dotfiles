@@ -1,0 +1,20 @@
+[user]
+	name = Jonathan Helmus
+	email = jjhelmus@gmail.com
+[github]
+	user = jjhelmus
+[core]
+	editor = vim
+	excludesfile = /home/jhelmus/.gitignore_global
+[credential]
+	helper = cache
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    ui = auto
+
+[color "diff"]
+	whitespace = red reverse
+[push]
+	default = simple
