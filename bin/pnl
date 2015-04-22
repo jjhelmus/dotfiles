@@ -1,0 +1,10 @@
+#! /usr/bin/python
+# Python script which prints blank lines to the screen
+
+import sys
+import os
+
+if len(sys.argv)!=2:
+    print "Usage",sys.argv[0],"n_lines"
+else:
+    for i in xrange(int(sys.argv[1])):print "\n"
