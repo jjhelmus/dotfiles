@@ -77,3 +77,5 @@ call pathogen#helptags()
 "let g:SuperTabDefaultCompletionType = "<c-p>"
 "let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
 let g:SuperTabDefaultCompletionType = "context"
+
+:set laststatus=2   " airline always on
