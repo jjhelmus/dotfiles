@@ -1,15 +1,21 @@
+# color support for ls and other tools 
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
-# aliases
+# ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# tools aliases
 alias st='set_title.py'
 alias ack=ack-grep
-
-# ARM utilities
-alias mount_dmf='sshfs copper:/ /home/jhelmus/dmf'
-alias mount_bds1='sshfs bds1:/ /home/jhelmus/bds1'
-alias umount_dmf='fusermount -u /home/jhelmus/dmf'
-alias umount_dbs1='fusermount -u /home/jhelmus/bds1'
-
-#alias apu='python -m arm_archive'
 
 # directory bookmarks
 alias b1='bookmark ~/1 ; echo "bookmark 1 set"'
@@ -31,33 +37,3 @@ alias g6='echo "following bookmark 6"; cd ~/6; cd `pwd -P`'
 alias g7='echo "following bookmark 7"; cd ~/7; cd `pwd -P`'
 alias g8='echo "following bookmark 8"; cd ~/8; cd `pwd -P`'
 alias g9='echo "following bookmark 9"; cd ~/9; cd `pwd -P`'
-
-PROMPT_DIRTRIM=2
-
-# git status bash prompt modified from 
-# http://www.opinionatedprogrammer.com/2011/01/colorful-bash-prompt-reflecting-git-status/
-function _git_prompt() {
-    local git_status="`git status -unormal 2>&1`"
-    if ! [[ "$git_status" =~ Not\ a\ git\ repo ]]; then
-        if [[ "$git_status" =~ nothing\ to\ commit ]]; then
-            local ansi=42
-        elif [[ "$git_status" =~ nothing\ added\ to\ commit\ but\ untracked\ files\ present ]]; then
-            local ansi=43
-        else
-            local ansi=45
-        fi
-        if [[ "$git_status" =~ On\ branch\ ([^[:space:]]+) ]]; then
-            branch=${BASH_REMATCH[1]}
-            test "$branch" != master || branch=' '
-        else
-            # Detached HEAD.  (branch=HEAD is a faster alternative.)
-            branch="(`git describe --all --contains --abbrev=4 HEAD 2> /dev/null ||
-                echo HEAD`)"
-        fi
-        echo -n '\[\e[0;37;'"$ansi"';1m\]'"$branch"'\[\e[0m\] '
-    fi
-}
-function _prompt_command() {
-    PS1="`_git_prompt`"'\[\033[01;34m\]\w\[\033[00m\]\$ '
-}
-PROMPT_COMMAND=_prompt_command
