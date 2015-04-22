@@ -1,35 +1,37 @@
-" Fortran fixed length source
-":let fortran_fixed_source=1
-":let fortran_have_tabs=1
+:filetype plugin indent on      " filetype detection[ON] plugin[ON] indent[ON]
 
-" Python Tab settings (<TAB> to be 4 spaces)
-:set tabstop=4
-:set shiftwidth=4
-:set smarttab
-:set expandtab
-:set textwidth=80
-:set softtabstop=4
-:set autoindent
+" Theme
+:set t_Co=256           " enable 256-color mode
+:syntax on              " enable syntax highlighting
+:colorscheme vividchalk " vividchalk colorscheme
 
+" Formatting and Layout 
+:set autoindent         " auto-ident
+:set tabstop=4          " tab spacing
+:set softtabstop=4      " unify tab spacing
+:set shiftwidth=4       " ident/outdent by 4 colomns
+:set shiftround         " always ident/outdent to nearest tabstop
+:set expandtab          " use spaces not tabs
+:set smartindent        " automatically insert an extra level of indentation
+:set smarttab           " use tabs at the start of a line, spaces elsewhere
+:set textwidth=79       " maximum line length is 79
 
-" Highlighting
-:set hlsearch
+" Misc
+:set hlsearch               " highlight all matches
+:set clipboard=unnamedplus  " use the system clipboard
 
-:filetype plugin indent on
-:syntax on
+" Remap window movement keys to Control+{arrow, h, j, k, l}
+nnoremap <silent> <C-Right> <c-w>l
+nnoremap <silent> <C-Left> <c-w>h
+nnoremap <silent> <C-Up> <c-w>k
+nnoremap <silent> <C-Down> <c-w>j
+nnoremap <silent> <C-l> <c-w>l
+nnoremap <silent> <C-h> <c-w>h
+nnoremap <silent> <C-k> <c-w>k
+nnoremap <silent> <C-j> <c-w>j
 
-:set t_Co=256
-:colorscheme default
-
-
-"folding settings
-:set foldmethod=indent   "fold based on indent
-:set foldnestmax=4       " maximum fold is 4 leveles
-:set nofoldenable        " folds are off by default
-
-
+" Functions
 " Strip trailing whitespace as per vimcast episode #4, 
-" call with <F5> and turn on for all Python files 
 function! <SID>StripTrailingWhitespaces()
     " Preparation: save last search, and cursor position.
     let _s=@/
@@ -42,6 +44,7 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfunction
 
+" call with <F5> and turn on for all Python files 
 nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 autocmd BufWritePre *.py :call <SID>StripTrailingWhitespaces()
 
@@ -51,36 +54,12 @@ function TrimWhiteSpace()
   ''
 :endfunction
 
-":autocmd FileType python set omnifunc=pythoncomplete#Complete
-
-" Uncomment the following for zenburn late night coding sessions
-":set t_Co=256
-":let g:zenburn_high_Contrast = 1
-":colorscheme zenburn
-":hi search ctermbg=223 ctermfg=238
-":hi incsearch ctermbg=216 ctermfg=242
-
-vmap <C-c><C-c> <Plug>SendSelectionToTmux
-nmap <C-c><C-c> <Plug>NormalModeSendToTmux
-nmap <C-c>r <Plug>SetTmuxVars
-
-
-"Remap window movement keys
-nnoremap <silent> <C-Right> <c-w>l
-nnoremap <silent> <C-Left> <c-w>h
-nnoremap <silent> <C-Up> <c-w>k
-nnoremap <silent> <C-Down> <c-w>j
-
-nnoremap <silent> <C-l> <c-w>l
-nnoremap <silent> <C-h> <c-w>h
-nnoremap <silent> <C-k> <c-w>k
-nnoremap <silent> <C-j> <c-w>j
-
-:set clipboard=unnamedplus
-
+" Plugins, managed by Pathogen
 call pathogen#infect()
 call pathogen#helptags()
-let g:SuperTabDefaultCompletionType = "<c-p>"
+
+" Supertab and completions
+:set completeopt=longest,menuone
+"let g:SuperTabDefaultCompletionType = "<c-p>"
 "let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
 let g:SuperTabDefaultCompletionType = "context"
-:set completeopt=longest,menuone
