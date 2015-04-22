@@ -29,3 +29,6 @@ eval "$(register-python-argcomplete arm_archive)"
 
 # Adjust IDL path to include rsl_in_idl
 export IDL_PATH='<IDL_DEFAULT>:/home/jhelmus/rsl_in_idl'
+
+# terminal adjust needed of vim-ipython plugin
+stty stop undef
