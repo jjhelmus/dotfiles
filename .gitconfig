@@ -5,7 +5,7 @@
 	user = jjhelmus
 [core]
 	editor = vim
-	excludesfile = /home/jhelmus/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [credential]
 	helper = cache
 [color]
