@@ -7,3 +7,6 @@
 [submodule ".vim/bundle/vim-ipython"]
 	path = .vim/bundle/vim-ipython
 	url = https://github.com/jjhelmus/vim-ipython.git
+[submodule ".vim/bundle/nerdcommenter"]
+	path = .vim/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
