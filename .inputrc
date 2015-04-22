@@ -1,1 +1,12 @@
-#set editing-mode vi
+set editing-mode vi
+set keymap vi-command
+"\e[A":history-search-backward
+"\e[B":history-search-forward
+Control-a: beginning-of-line
+Control-e: end-of-line
+
+set keymap vi-insert
+"\e[A":history-search-backward
+"\e[B":history-search-forward
+Control-a: beginning-of-line
+Control-e: end-of-line
