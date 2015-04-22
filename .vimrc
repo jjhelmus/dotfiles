@@ -1,11 +1,12 @@
-:filetype plugin indent on      " filetype detection[ON] plugin[ON] indent[ON]
+set nocompatible
+:filetype plugin indent on  " filetype detection[ON] plugin[ON] indent[ON]
 
 " Theme
 :set t_Co=256           " enable 256-color mode
 :syntax on              " enable syntax highlighting
 :colorscheme vividchalk " vividchalk colorscheme
 
-" Formatting and Layout 
+" Formatting and Layout
 :set autoindent         " auto-ident
 :set tabstop=4          " tab spacing
 :set softtabstop=4      " unify tab spacing
@@ -19,6 +20,19 @@
 " Misc
 :set hlsearch               " highlight all matches
 :set clipboard=unnamedplus  " use the system clipboard
+:let mapleader=","          " change leader to ,
+:let maplocalleader=","     " change local leader to ,
+:set hidden                 " buffers and hidden not closed
+:set virtualedit=all        " allow cursor anywhere (helpful in visual boack)
+:set shortmess+=I           " do now show the launch screen
+:set autoread               " auto load files changed outside of vim
+inoremap jj <ESC>
+
+" Thanks to Steve Losh for this liberating tip
+" See http://stevelosh.com/blog/2010/09/coming-home-to-vim
+" Remove \v from search strings
+nnoremap / /\v
+vnoremap / /\v
 
 " Remap window movement keys to Control+{arrow, h, j, k, l}
 nnoremap <silent> <C-Right> <c-w>l
@@ -31,7 +45,7 @@ nnoremap <silent> <C-k> <c-w>k
 nnoremap <silent> <C-j> <c-w>j
 
 " Functions
-" Strip trailing whitespace as per vimcast episode #4, 
+" Strip trailing whitespace as per vimcast episode #4,
 function! <SID>StripTrailingWhitespaces()
     " Preparation: save last search, and cursor position.
     let _s=@/
@@ -44,7 +58,7 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfunction
 
-" call with <F5> and turn on for all Python files 
+" call with <F5> and turn on for all Python files
 nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 autocmd BufWritePre *.py :call <SID>StripTrailingWhitespaces()
 
