@@ -23,16 +23,10 @@ set nocompatible
 :let mapleader=","          " change leader to ,
 :let maplocalleader=","     " change local leader to ,
 :set hidden                 " buffers and hidden not closed
-:set virtualedit=all        " allow cursor anywhere (helpful in visual boack)
+:set virtualedit=block      " allow cursor anywhere visual block mode
 :set shortmess+=I           " do now show the launch screen
 :set autoread               " auto load files changed outside of vim
 inoremap jj <ESC>
-
-" Thanks to Steve Losh for this liberating tip
-" See http://stevelosh.com/blog/2010/09/coming-home-to-vim
-" Remove \v from search strings
-nnoremap / /\v
-vnoremap / /\v
 
 " Remap window movement keys to Control+{arrow, h, j, k, l}
 nnoremap <silent> <C-Right> <c-w>l
