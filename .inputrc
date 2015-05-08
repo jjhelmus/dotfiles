@@ -1,9 +1,5 @@
 set editing-mode vi
-"\e[A":history-search-backward
-"\e[B":history-search-forward
-$if Python
-    set editing-mode emacs
-$endif
+
 set keymap vi-command
 "\e[A":history-search-backward
 "\e[B":history-search-forward
