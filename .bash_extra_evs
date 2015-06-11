@@ -32,3 +32,6 @@ export IDL_PATH='<IDL_DEFAULT>:/home/jhelmus/rsl_in_idl'
 
 # terminal adjust needed of vim-ipython plugin
 stty stop undef
+
+# hub completions
+eval "$(hub alias -s)"
