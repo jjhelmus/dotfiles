@@ -13,7 +13,6 @@ set nocompatible
 :set shiftwidth=4       " ident/outdent by 4 colomns
 :set shiftround         " always ident/outdent to nearest tabstop
 :set expandtab          " use spaces not tabs
-:set smartindent        " automatically insert an extra level of indentation
 :set smarttab           " use tabs at the start of a line, spaces elsewhere
 :set textwidth=79       " maximum line length is 79
 
