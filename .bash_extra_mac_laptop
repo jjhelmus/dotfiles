@@ -1,0 +1,13 @@
+
+# Add MacPorts to PATH
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+
+# Mac specific aliases
+alias ls='ls -G'
+alias gvim="mvim"
+alias ack="ack-5.12"
+alias f2py="f2py-2.7"
+
+# Anaconda
+export PATH="/Users/jhelmus/anaconda/bin:$PATH"
+export GRIB_DEFINITION_PATH=/Users/jhelmus/anaconda/share/grib_api/definitions/
