@@ -11,3 +11,16 @@ alias f2py="f2py-2.7"
 # Anaconda
 export PATH="/Users/jhelmus/anaconda/bin:$PATH"
 export GRIB_DEFINITION_PATH=/Users/jhelmus/anaconda/share/grib_api/definitions/
+
+# git completions
+if [ -f /opt/local/etc/bash_completion ]; then
+    . /opt/local/etc/bash_completion
+fi
+
+# conda and other argcompletes
+eval "$(register-python-argcomplete conda)"
+eval "$(register-python-argcomplete apu)"
+eval "$(register-python-argcomplete arm_archive)"
+
+# apu
+alias apu='python -m arm_archive'
