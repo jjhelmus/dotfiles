@@ -18,7 +18,7 @@ set nocompatible
 
 " Misc
 :set hlsearch               " highlight all matches
-:set clipboard=unnamedplus  " use the system clipboard
+:set clipboard=unnamed      " use the system clipboard
 :let mapleader=","          " change leader to ,
 :let maplocalleader=","     " change local leader to ,
 :set hidden                 " buffers and hidden not closed
