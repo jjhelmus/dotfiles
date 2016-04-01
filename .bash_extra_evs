@@ -34,5 +34,12 @@ export IDL_PATH='<IDL_DEFAULT>:/home/jhelmus/rsl_in_idl'
 # terminal adjust needed of vim-ipython plugin
 stty stop undef
 
-# hub completions
+# hub and completions
 eval "$(hub alias -s)"
+if [ -f ~/completions/hub.bash_completion.sh ]; then
+    . ~/completions/hub.bash_completion.sh
+fi
+
+# Ruby Home
+export GEM_HOME=/home/jhelmus/.gem
+export GEM_PATH=/home/jhelmus/.gem
