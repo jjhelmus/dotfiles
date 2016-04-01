@@ -26,5 +26,7 @@ function _git_prompt() {
 }
 function _prompt_command() {
     PS1="`_git_prompt`"'\[\033[01;34m\]\w\[\033[00m\]\$ '
+    history -a
+    history -n
 }
 PROMPT_COMMAND=_prompt_command
