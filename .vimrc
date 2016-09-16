@@ -36,6 +36,9 @@ nnoremap <silent> <C-h> <c-w>h
 nnoremap <silent> <C-k> <c-w>k
 nnoremap <silent> <C-j> <c-w>j
 
+" File specific formatting over-rides
+autocmd FileType yaml setlocal ts=2 expandtab sts=2 sw=2
+
 " Functions
 " Strip trailing whitespace as per vimcast episode #4,
 function! <SID>StripTrailingWhitespaces()
@@ -69,5 +72,10 @@ call pathogen#helptags()
 "let g:SuperTabDefaultCompletionType = "<c-p>"
 "let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
 let g:SuperTabDefaultCompletionType = "context"
+" Completion chaining, fall back to <c-p> when omnicomplete returns no results
+autocmd FileType *
+    \ if &omnifunc != '' |
+    \   call SuperTabChain(&omnifunc, "<c-p>") |
+    \ endif
 
 :set laststatus=2   " airline always on
