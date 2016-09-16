@@ -43,3 +43,5 @@ fi
 # Ruby Home
 export GEM_HOME=/home/jhelmus/.gem
 export GEM_PATH=/home/jhelmus/.gem
+
+export PYART_QUIET=
