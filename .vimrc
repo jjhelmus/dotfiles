@@ -25,6 +25,7 @@ set nocompatible
 :set virtualedit=block      " allow cursor anywhere visual block mode
 :set shortmess+=I           " do now show the launch screen
 :set autoread               " auto load files changed outside of vim
+:set mouse=a                " mouse support in vim
 
 " Remap window movement keys to Control+{arrow, h, j, k, l}
 nnoremap <silent> <C-Right> <c-w>l
