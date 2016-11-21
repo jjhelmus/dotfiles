@@ -39,6 +39,7 @@ nnoremap <silent> <C-j> <c-w>j
 
 " File specific formatting over-rides
 autocmd FileType yaml setlocal ts=2 expandtab sts=2 sw=2
+autocmd FileType python setlocal omnifunc=python3complete#Complete
 
 " Functions
 " Strip trailing whitespace as per vimcast episode #4,
