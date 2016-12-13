@@ -4,7 +4,7 @@ set nocompatible
 " Theme
 :set t_Co=256           " enable 256-color mode
 :syntax on              " enable syntax highlighting
-:colorscheme vividchalk " vividchalk colorscheme
+:colorscheme default " vividchalk colorscheme
 
 " Formatting and Layout
 :set autoindent         " auto-ident
@@ -39,7 +39,7 @@ nnoremap <silent> <C-j> <c-w>j
 
 " File specific formatting over-rides
 autocmd FileType yaml setlocal ts=2 expandtab sts=2 sw=2
-autocmd FileType python setlocal omnifunc=python3complete#Complete
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 
 " Functions
 " Strip trailing whitespace as per vimcast episode #4,

@@ -1,7 +1,7 @@
 # channel locations. These override conda defaults, i.e., conda will
 # search only the channels listed here, in the order given.
 channels:
+  - rpi
   - defaults
-  - conda-forge
 add_pip_as_python_dependency: false
 show_channel_urls: true
