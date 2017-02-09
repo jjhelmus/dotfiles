@@ -1,5 +1,5 @@
 set nocompatible
-:filetype plugin indent on  " filetype detection[ON] plugin[ON] indent[ON]
+filetype plugin indent on  " filetype detection[ON] plugin[ON] indent[ON]
 
 " Theme
 :set t_Co=256           " enable 256-color mode
@@ -26,6 +26,26 @@ set nocompatible
 :set shortmess+=I           " do now show the launch screen
 :set autoread               " auto load files changed outside of vim
 :set mouse=a                " mouse support in vim
+:set laststatus=2           " status line always on
+:set ruler                  " line and colume on status line
+set backspace=indent,eol,start " backspace over indents, end of line, etc
+set incsearch               " jump to searches while typing
+set formatoptions+=j        " Delete comment characters when joining lines
+
+
+" Borrowed from How to Do 90% of What Plugins Do (with just Vim)
+" Max Cantor
+" https://www.youtube.com/watch?v=XA2WjJbmmoM&t=3474s
+
+" file jumping, use :find pattern<tab> to search for files
+set path+=**   " search into subfolders with :find
+set wildmenu   " display all matching file when tab is pressed
+
+" tag jumping
+command! MakeTags !ctags -R .
+" Use ^] to jump to a tag under the cursor
+" g^] for ambiguous tags
+" ^t to jump back up the tag stack
 
 " Remap window movement keys to Control+{arrow, h, j, k, l}
 nnoremap <silent> <C-Right> <c-w>l
@@ -71,13 +91,18 @@ call pathogen#helptags()
 
 " Supertab and completions
 :set completeopt=longest,menuone
-"let g:SuperTabDefaultCompletionType = "<c-p>"
-"let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
 let g:SuperTabDefaultCompletionType = "context"
+" fall back to user completion, including tmux-complete results
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-u>"
 " Completion chaining, fall back to <c-p> when omnicomplete returns no results
 autocmd FileType *
     \ if &omnifunc != '' |
     \   call SuperTabChain(&omnifunc, "<c-p>") |
     \ endif
 
-:set laststatus=2   " airline always on
+" tslime
+let g:tslime_always_current_session = 1
+let g:tslime_always_current_window = 1
+vmap <C-c><C-c> <Plug>SendSelectionToTmux
+nmap <C-c><C-c> <Plug>NormalModeSendToTmux
+nmap <C-c>r <Plug>SetTmuxVars
