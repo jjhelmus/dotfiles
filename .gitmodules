@@ -22,3 +22,6 @@
 [submodule ".vim/bundle/tmux-complete.vim"]
 	path = .vim/bundle/tmux-complete.vim
 	url = git://github.com/wellle/tmux-complete.vim.git
+[submodule ".vim/bundle/tslime.vim"]
+	path = .vim/bundle/tslime.vim
+	url = https://github.com/jgdavey/tslime.vim
