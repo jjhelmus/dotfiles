@@ -1,0 +1,19 @@
+######## EVS Desktop specific (move to seperate file ######
+
+# until gvim is fixed in Ubunutu
+UBUNTU_MENUPROXY=0
+
+# Anaconda
+export PATH="/home/jhelmus/anaconda3/bin:$PATH"
+
+# conda and other argcompletes
+eval "$(register-python-argcomplete conda)"
+
+# terminal adjust needed of vim-ipython plugin
+stty stop undef
+
+# hub and completions
+eval "$(hub alias -s)"
+if [ -f ~/completions/hub.bash_completion.sh ]; then
+    . ~/completions/hub.bash_completion.sh
+fi
