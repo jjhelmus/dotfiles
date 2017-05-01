@@ -2,9 +2,9 @@ set nocompatible
 filetype plugin indent on  " filetype detection[ON] plugin[ON] indent[ON]
 
 " Theme
+:colorscheme vividchalk " vividchalk colorscheme
 :set t_Co=256           " enable 256-color mode
 :syntax on              " enable syntax highlighting
-:colorscheme vividchalk " vividchalk colorscheme
 
 " Formatting and Layout
 :set autoindent         " auto-ident
