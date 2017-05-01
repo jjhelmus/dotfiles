@@ -2,6 +2,6 @@
 # search only the channels listed here, in the order given.
 channels:
   - defaults
-  - conda-forge
+#  - conda-forge
 add_pip_as_python_dependency: false
 show_channel_urls: true
