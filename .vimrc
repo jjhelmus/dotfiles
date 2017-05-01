@@ -92,8 +92,6 @@ call pathogen#helptags()
 " Supertab and completions
 :set completeopt=longest,menuone
 let g:SuperTabDefaultCompletionType = "context"
-" fall back to user completion
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-u>"
 " Completion chaining, fall back to <c-p> when omnicomplete returns no results
 autocmd FileType *
     \ if &omnifunc != '' |
