@@ -92,17 +92,10 @@ call pathogen#helptags()
 " Supertab and completions
 :set completeopt=longest,menuone
 let g:SuperTabDefaultCompletionType = "context"
-" fall back to user completion, including tmux-complete results
+" fall back to user completion
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-u>"
 " Completion chaining, fall back to <c-p> when omnicomplete returns no results
 autocmd FileType *
     \ if &omnifunc != '' |
     \   call SuperTabChain(&omnifunc, "<c-p>") |
     \ endif
-
-" tslime
-let g:tslime_always_current_session = 1
-let g:tslime_always_current_window = 1
-vmap <C-c><C-c> <Plug>SendSelectionToTmux
-nmap <C-c><C-c> <Plug>NormalModeSendToTmux
-nmap <C-c>r <Plug>SetTmuxVars

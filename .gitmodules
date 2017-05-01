@@ -4,27 +4,12 @@
 [submodule ".vim/bundle/supertab"]
 	path = .vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
-[submodule ".vim/bundle/vim-ipython"]
-	path = .vim/bundle/vim-ipython
-	url = https://github.com/jjhelmus/vim-ipython.git
 [submodule ".vim/bundle/nerdcommenter"]
 	path = .vim/bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
-[submodule ".vim/bundle/ack.vim"]
-	path = .vim/bundle/ack.vim
-	url = https://github.com/mileszs/ack.vim.git
 [submodule ".vim/bundle/vim-flake8"]
 	path = .vim/bundle/vim-flake8
 	url = https://github.com/nvie/vim-flake8.git
-[submodule ".vim/bundle/fugitive"]
-	path = .vim/bundle/fugitive
-	url = git://github.com/tpope/vim-fugitive.git
-[submodule ".vim/bundle/tmux-complete.vim"]
-	path = .vim/bundle/tmux-complete.vim
-	url = git://github.com/wellle/tmux-complete.vim.git
-[submodule ".vim/bundle/tslime.vim"]
-	path = .vim/bundle/tslime.vim
-	url = https://github.com/jgdavey/tslime.vim
 [submodule ".vim/bundle/vim-tmux-navigator"]
 	path = .vim/bundle/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator.git
