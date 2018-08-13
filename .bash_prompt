@@ -4,6 +4,10 @@ PROMPT_DIRTRIM=2
 # git status bash prompt modified from 
 # http://www.opinionatedprogrammer.com/2011/01/colorful-bash-prompt-reflecting-git-status/
 function _git_prompt() {
+    # skip git status in aggregate repo
+    if [[ "$PWD" == *aggregate ]]; then
+        return
+    fi
     local git_status="`git status -unormal 2>&1`"
     if ! [[ "$git_status" =~ Not\ a\ git\ repo ]]; then
         if [[ "$git_status" =~ nothing\ to\ commit ]]; then
