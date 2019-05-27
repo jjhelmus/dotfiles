@@ -6,8 +6,8 @@
 # Bash history
 HISTCONTROL=ignoreboth  # ignore duplicate and lines starting with space
 shopt -s histappend     # append to history file, don't overwrite
-HISTSIZE=10000
-HISTFILESIZE=20000
+HISTSIZE=100000
+HISTFILESIZE=200000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
