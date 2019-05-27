@@ -26,12 +26,18 @@ filetype plugin indent on  " filetype detection[ON] plugin[ON] indent[ON]
 :set shortmess+=I           " do now show the launch screen
 :set autoread               " auto load files changed outside of vim
 :set mouse=a                " mouse support in vim
+:set mousemodel=popup
 :set laststatus=2           " status line always on
 :set ruler                  " line and colume on status line
 set backspace=indent,eol,start " backspace over indents, end of line, etc
 set incsearch               " jump to searches while typing
 set formatoptions+=j        " Delete comment characters when joining lines
 
+" Spell checking
+"set spell spelllang=en_us
+hi clear SpellBad
+hi SpellBad cterm=underline ctermfg=red
+"nnoremap <C-u> ea<C-X>s
 
 " Borrowed from How to Do 90% of What Plugins Do (with just Vim)
 " Max Cantor
