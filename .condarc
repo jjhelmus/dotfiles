@@ -1,7 +1,19 @@
-# channel locations. These override conda defaults, i.e., conda will
-# search only the channels listed here, in the order given.
 channels:
   - defaults
-#  - conda-forge
 add_pip_as_python_dependency: false
 show_channel_urls: true
+path_conflict: warn
+ssl_verify: true
+report_errors: false
+changeps1: false
+default_channels:
+  - https://repo.anaconda.com/pkgs/r
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/free
+conda_build:
+  matrix_base_dir: /home/jhelmus/workspace/nbs/automated-build/c3i_configurations/anaconda_public
+#channel_alias: https://conda-static.anaconda.org
+#featureless_minimization_disabled_feature_flag: true
+#local_repodata_ttl: 999999
+#aggressive_update_packages: []
+#channel_alias: https://conda-web.anaconda.org
