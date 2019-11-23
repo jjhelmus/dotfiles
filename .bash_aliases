@@ -15,7 +15,15 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 # tools aliases
 alias st='set_title.py'
-alias ack=ack-grep
+
+# git aliases
+alias g="git"
+alias gs="git status"
+alias gd="git diff"
+
+alias gdc="git diff conda-forge/master"
+alias gdcf="git diff conda-forge/master"
+alias gdo="git diff origin/master"
 
 # directory bookmarks
 alias b1='bookmark ~/1 ; echo "bookmark 1 set"'
