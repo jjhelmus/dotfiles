@@ -1,26 +1,25 @@
-
-# Add MacPorts to PATH
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-
 # Mac specific aliases
 alias ls='ls -G'
 alias gvim="mvim"
-alias ack="ack-5.12"
-alias f2py="f2py-2.7"
+alias vim="mvim -v"
 
-# Anaconda
-export PATH="/Users/jhelmus/anaconda/bin:$PATH"
-export GRIB_DEFINITION_PATH=/Users/jhelmus/anaconda/share/grib_api/definitions/
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/jhelmus/conda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/jhelmus/conda/etc/profile.d/conda.sh" ]; then
+        . "/Users/jhelmus/conda/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/jhelmus/conda/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+export PATH="/Users/jhelmus/conda/bin:$PATH"
 
 # git completions
 if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
 fi
-
-# conda and other argcompletes
-eval "$(register-python-argcomplete conda)"
-eval "$(register-python-argcomplete apu)"
-eval "$(register-python-argcomplete arm_archive)"
-
-# apu
-alias apu='python -m arm_archive'
