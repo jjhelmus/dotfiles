@@ -1,19 +1,25 @@
 ######## EVS Desktop specific (move to seperate file ######
 
-# until gvim is fixed in Ubunutu
-UBUNTU_MENUPROXY=0
+# conda
+__conda_setup="$('/home/jhelmus/conda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/jhelmus/conda/etc/profile.d/conda.sh" ]; then
+        . "/home/jhelmus/conda/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/jhelmus/conda/bin:$PATH"
+    fi
+fi
+unset __conda_setup
 
-# Anaconda
-export PATH="/home/jhelmus/anaconda3/bin:$PATH"
-
-# conda and other argcompletes
-eval "$(register-python-argcomplete conda)"
-
-# terminal adjust needed of vim-ipython plugin
-stty stop undef
+# find_latest
+export PKG_INFO_FILE="/home/jhelmus/pkg_info.csv"
 
 # hub and completions
 eval "$(hub alias -s)"
-if [ -f ~/completions/hub.bash_completion.sh ]; then
-    . ~/completions/hub.bash_completion.sh
+if [ -f ~/bin/hub.bash_completion.sh ]; then
+    . ~/bin/hub.bash_completion.sh
 fi
+
+export C3I_PIPELINE_PREFIX="jjh"
