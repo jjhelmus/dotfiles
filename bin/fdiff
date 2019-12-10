@@ -1,0 +1,14 @@
+#! /bin/bash
+if [ $(basename $(pwd)) != "recipe" ]; then
+    pushd recipe > /dev/null 2>&1
+fi
+
+echo "git diff conda-forge/master"
+echo "---------------------------"
+git diff conda-forge/master .
+
+echo "git diff origin/master"
+echo "----------------------"
+git diff origin/master .
+
+

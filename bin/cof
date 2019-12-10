@@ -1,0 +1,53 @@
+#! /usr/bin/env python
+
+import argparse
+import os
+import re
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(description="Submit c3i one-off job(s)")
+    parser.add_argument(
+        "feedstocks",
+        nargs="+",
+        help="Feedstock(s) to submit as a one-off job(s)")
+    parser.add_argument(
+        "--pipeline-prefix",
+        default=os.environ.get("C3I_PIPELINE_PREFIX", "null"),
+        help=("Prefix for the pipeline, if not specified the value of "
+              "the C3I_PIPELINE_PREFIX environment variable or 'null' is "
+              "used.")
+    )
+    parser.add_argument(
+        "--split",
+        action="store_true",
+        help="Split the feedstocks into seperate pipelines, one feedstock per pipeline"
+    )
+    args = parser.parse_args()
+    return args
+
+
+def submit_pipeline(pipeline_prefix, feedstocks):
+    feedstock = feedstocks[0]
+    match = re.match("(.*)-feedstock", feedstock)
+    if match is None:
+        raise ValueError(f"cannot determine package name in {feedstock}")
+    pkg_name = match.group(1)
+    pipeline_name = f"{pipeline_prefix}_{pkg_name}"
+    feedstocks_str = " ".join(feedstocks)
+    command = f"c3i one-off {pipeline_name} {feedstocks_str}"
+    print("Running:", command)
+    os.system(command)
+
+
+def main():
+    args = parse_args()
+    if args.split:
+        for feedstock in args.feedstocks:
+            submit_pipeline(args.pipeline_prefix, [feedstock])
+    else:
+        submit_pipeline(args.pipeline_prefix, args.feedstocks)
+
+
+if __name__ == "__main__":
+    main()

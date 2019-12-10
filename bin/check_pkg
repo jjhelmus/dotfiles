@@ -1,0 +1,19 @@
+#!/usr/bin/env python
+import hashlib
+import json
+import sys
+import tarfile
+fname = sys.argv[1]
+with tarfile.open(fname, "r") as tf:
+    with tf.extractfile("info/paths.json") as f:
+        paths = json.load(f)
+    for info in paths['paths']:
+        pkg_digest = info["sha256"]
+        if pkg_digest is None:
+            continue
+        path = info["_path"]
+        with tf.extractfile(path) as f:
+            digest = hashlib.sha256(f.read()).hexdigest()
+        if digest != pkg_digest:
+            print(f"sha256 mismatch {path}: {digest} vs {pkg_digest}")
+print("OK")
