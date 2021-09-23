@@ -1,5 +1,4 @@
 set nocompatible
-filetype plugin indent on  " filetype detection[ON] plugin[ON] indent[ON]
 
 " Theme
 :colorscheme vividchalk " vividchalk colorscheme
@@ -7,14 +6,16 @@ filetype plugin indent on  " filetype detection[ON] plugin[ON] indent[ON]
 :syntax on              " enable syntax highlighting
 
 " Formatting and Layout
+:set tabstop=2          " tab spacing
+:set softtabstop=2      " unify tab spacing
+:set shiftwidth=2       " ident/outdent by 4 colomns
 :set autoindent         " auto-ident
-:set tabstop=4          " tab spacing
-:set softtabstop=4      " unify tab spacing
-:set shiftwidth=4       " ident/outdent by 4 colomns
 :set shiftround         " always ident/outdent to nearest tabstop
 :set expandtab          " use spaces not tabs
 :set smarttab           " use tabs at the start of a line, spaces elsewhere
-:set textwidth=79       " maximum line length is 79
+:set textwidth=99       " maximum line length is 99
+
+filetype plugin indent on  " filetype detection[ON] plugin[ON] indent[ON]
 
 " Misc
 :set hlsearch               " highlight all matches
@@ -65,6 +66,7 @@ nnoremap <silent> <C-j> <c-w>j
 
 " File specific formatting over-rides
 autocmd FileType yaml setlocal ts=2 expandtab sts=2 sw=2
+autocmd FileType python setl sw=2 sts=2 et
 autocmd FileType python setlocal omnifunc=python3complete#Complete
 
 " Functions
