@@ -1,0 +1,31 @@
+# color support for ls and other tools 
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# directory bookmarks
+alias b1='bookmark ~/1 ; echo "bookmark 1 set"'
+alias b2='bookmark ~/2 ; echo "bookmark 2 set"'
+alias b3='bookmark ~/3 ; echo "bookmark 3 set"'
+alias b4='bookmark ~/4 ; echo "bookmark 4 set"'
+alias b5='bookmark ~/5 ; echo "bookmark 5 set"'
+alias b6='bookmark ~/6 ; echo "bookmark 6 set"'
+alias b7='bookmark ~/7 ; echo "bookmark 7 set"'
+alias b8='bookmark ~/8 ; echo "bookmark 8 set"'
+alias b9='bookmark ~/9 ; echo "bookmark 9 set"'
+
+alias g1='echo "following bookmark 1"; cd ~/1; cd `pwd -P`'
+alias g2='echo "following bookmark 2"; cd ~/2; cd `pwd -P`'
+alias g3='echo "following bookmark 3"; cd ~/3; cd `pwd -P`'
+alias g4='echo "following bookmark 4"; cd ~/4; cd `pwd -P`'
+alias g5='echo "following bookmark 5"; cd ~/5; cd `pwd -P`'
+alias g6='echo "following bookmark 6"; cd ~/6; cd `pwd -P`'
+alias g7='echo "following bookmark 7"; cd ~/7; cd `pwd -P`'
+alias g8='echo "following bookmark 8"; cd ~/8; cd `pwd -P`'
+alias g9='echo "following bookmark 9"; cd ~/9; cd `pwd -P`'

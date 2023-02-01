@@ -1,0 +1,15 @@
+# vim key bindings
+bindkey -v
+
+# ... and some emac specials
+bindkey ^R history-incremental-search-backward 
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
+
+# up and down errors can do history search
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
