@@ -4,6 +4,6 @@ export EDITOR="vim"
 export VISUAL="vim"
 export PATH="${HOME}/bin:$PATH"
 
-[ -f .aliases ] && source .aliases
-[ -f .zshrc_keys ] && source .zshrc_keys
-[ -f .zshrc_local ] && source .zshrc_local
+[ -f ${HOME}/.aliases ] && source ${HOME}/.aliases
+[ -f ${HOME}/.zshrc_keys ] && source ${HOME}/.zshrc_keys
+[ -f ${HOME}/.zshrc_local ] && source ${HOME}/.zshrc_local
